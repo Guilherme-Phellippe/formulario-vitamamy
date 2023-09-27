@@ -48,9 +48,9 @@ function App() {
         "Não",
         "Sim, o Clomifeno",
         "Sim, o Alfacorifolitropina",
-        "Sim, o Urofolitropina",
+        "Sim, o Lurevita",
         "Sim, o Alfafolitropina",
-        "Sim, o Vita mamy",
+        "Sim, o Vita baby",
         "Sim, o Menotropina",
         "Apenas remédios caseiros",
         "Outro",
@@ -119,7 +119,7 @@ function App() {
     <div className="w-screen bg-gradient-to-t from-white to-pink-300 py-16">
       <div className="w-full md:w-auto md:max-w-[800px] bg-white mx-auto rounded-xl shadow-lg p-2 md:p-4">
         <h1 className="text-center py-2 md:p-4 text-xl md:text-2xl font-bold">A maternidade é a realização de um sonho, o começo de uma história de amor eterno, então não deixe de sonhar!🌈👶</h1>
-        <h2 className="text-center p-0 py-2 md:p-2 text-md md:text-lg">Preencha o formulário para liberar seu passo a passo de como aumentar a probabilidade de engravidar:</h2>
+        <h2 className="text-center p-0 py-2 md:p-2 text-md md:text-lg">Preencha o formulário para liberar o passo a passo de como aumentar a suas chances de engravidar:</h2>
         <div className="flex flex-col">
           {
             currentStep <= 6 ?
