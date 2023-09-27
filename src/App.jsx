@@ -89,7 +89,6 @@ function App() {
     const { columnNameOnDB } = asks.find(ask => ask.step === currentStep && ask.columnNameOnDB);
     let response;
 
-    console.log(text, columnNameOnDB)
     if (text !== "Outro") {
       if (existForm) {
         response = await axios.put(`https://api.saudevivida.site/update-form/${existForm.id}`, { [columnNameOnDB]: [text] })
