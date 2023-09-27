@@ -4,7 +4,7 @@ import formatNumber from "../scripts/formatNumber";
 
 const FinishForm = () => {
     const existForm = JSON.parse(localStorage.getItem("start_form"))
-    const [showThanksPage, setThanksPage] = useState(existForm?.currentStep === 6 ? true : false);
+    const [showThanksPage, setThanksPage] = useState(existForm?.currentStep === 8 ? true : false);
     const refForm = useRef();
 
 
@@ -17,6 +17,7 @@ const FinishForm = () => {
 
         if (email && tel) {
             let response = await axios.put(`https://api.saudevivida.site/update-form/${existForm.id}`, { email, tel })
+            // let response = await axios.put(`http://localhost:3333/update-form/${existForm.id}`, { email, tel })
 
             if (response.status === 201) {
                 localStorage.setItem("start_form", JSON.stringify({ id: existForm.id, currentStep: existForm.currentStep + 1 }))

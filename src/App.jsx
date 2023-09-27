@@ -50,9 +50,35 @@ function App() {
         "Sim, o Alfacorifolitropina",
         "Sim, o Urofolitropina",
         "Sim, o Alfafolitropina",
+        "Sim, o Vita mamy",
         "Sim, o Menotropina",
         "Apenas remédios caseiros",
         "Outro",
+      ]
+    },
+    {
+      step: 5,
+      columnNameOnDB: "ask_five",
+      ask: "5. Por que você quer ser mãe?",
+      options: [
+        "Realização pessoal",
+        "Sonho do meu parceiro(a)",
+        "Quero formar uma família",
+        "Experimentar o amor incondicional por um filho",
+        "Desenvolver um vínculo único e profundo com uma criança",
+        "Contribuir para a sociedade, criando crianças bem-educadas",
+        "Outro",
+      ]
+    },
+    {
+      step: 6,
+      columnNameOnDB: "ask_six",
+      ask: "6. Quanto você estaria disposta a pagar por uma solução real que realize seu sonho de ser mamãe?",
+      options: [
+        "Até 500 reais",
+        "Até mil reais",
+        "Até 5 mil reais",
+        "Qualquer valor! só quero ser mãe.",
       ]
     },
   ]
@@ -63,13 +89,15 @@ function App() {
     const { columnNameOnDB } = asks.find(ask => ask.step === currentStep && ask.columnNameOnDB);
     let response;
 
-    console.log(text)
+    console.log(text, columnNameOnDB)
     if (text !== "Outro") {
       if (existForm) {
         response = await axios.put(`https://api.saudevivida.site/update-form/${existForm.id}`, { [columnNameOnDB]: [text] })
+        // response = await axios.put(`http://localhost:3333/update-form/${existForm.id}`, { [columnNameOnDB]: [text] })
 
       } else {
         response = await axios.post("https://api.saudevivida.site/create-form", { [columnNameOnDB]: [text] })
+        // response = await axios.post("http://localhost:3333/create-form", { [columnNameOnDB]: [text] })
       }
 
       if (response.status === 201) {
@@ -94,9 +122,9 @@ function App() {
         <h2 className="text-center p-0 py-2 md:p-2 text-md md:text-lg">Preencha o formulário para liberar seu passo a passo de como aumentar a probabilidade de engravidar:</h2>
         <div className="flex flex-col">
           {
-            currentStep <= 4 ?
+            currentStep <= 6 ?
               asks.map(ask => {
-                if (currentStep <= 4 && ask.step === currentStep) {
+                if (currentStep <= 6 && ask.step === currentStep) {
                   return <div key={ask.step}>
                     <FormBlock
                       ask={ask.ask}
