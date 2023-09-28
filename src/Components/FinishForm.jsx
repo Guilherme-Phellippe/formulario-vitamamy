@@ -22,7 +22,7 @@ const FinishForm = () => {
             if (response.status === 201) {
                 localStorage.setItem("start_form", JSON.stringify({ id: existForm.id, currentStep: existForm.currentStep + 1 }))
                 // eslint-disable-next-line no-undef
-                fbq("trackCustom", "lead")
+                fbq("track", "lead")
                 setThanksPage(true)
             }
         } else {
