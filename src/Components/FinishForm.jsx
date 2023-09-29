@@ -22,7 +22,7 @@ const FinishForm = () => {
             if (response.status === 201) {
                 localStorage.setItem("start_form", JSON.stringify({ id: existForm.id, currentStep: existForm.currentStep + 1 }))
                 // eslint-disable-next-line no-undef
-                fbq("track", "Lead")
+                fbq("track", "lead")
                 setThanksPage(true)
             }
         } else {
@@ -31,7 +31,7 @@ const FinishForm = () => {
         }
     }
 
-    const handleFormatTel = ({ currentTarget }) =>{
+    const handleFormatTel = ({ currentTarget }) => {
         const newValue = formatNumber(currentTarget.value)
         currentTarget.value = newValue;
     }
@@ -52,13 +52,16 @@ const FinishForm = () => {
 
                 <div className="flex flex-col">
                     <label htmlFor="">Digite seu número:</label>
-                    <input
-                        type="tel"
-                        id="tel"
-                        className="border-[1px] border-pink-400 py-2 px-4 rounded-lg my-2"
-                        placeholder="Ex: (ddd) x xxxx-xxxx"
-                        onChange={handleFormatTel}
-                    />
+                    <div className="flex justify-start items-center gap-2 border-[1px] border-pink-400 py-2 px-4 rounded-lg my-2">
+                        <p>+55</p>
+                        <input
+                            type="tel"
+                            id="tel"
+                            className="outline-none"
+                            placeholder="(ddd) x xxxx-xxxx"
+                            onChange={handleFormatTel}
+                        />
+                    </div>
                 </div>
 
 

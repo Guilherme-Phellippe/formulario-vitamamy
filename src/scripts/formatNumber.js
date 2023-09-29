@@ -4,7 +4,7 @@ export default function formatNumber(value) {
     if (onlyNumber.length > 0) {
         formatNumber = "(" + formatNumber
 
-
+        if (formatNumber.length == 1) formatNumber = "+55 "+formatNumber
         if (formatNumber.length >= 4) formatNumber = formatNumber.substring(0, 3) + ") " + formatNumber.substring(3, formatNumber.length)
         if (formatNumber.length >= 10) formatNumber = formatNumber.substring(0, 11) + "-" + formatNumber.substring(11, formatNumber.length)
         if (formatNumber.length == 14) {
